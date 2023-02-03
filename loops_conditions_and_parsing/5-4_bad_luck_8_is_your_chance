@@ -2,8 +2,7 @@
 # Loop eliminating some iterations anad replacing them
 i=1
 while [ $i -le 10 ]
-do 
-echo "Best School"
+do
 if [ $i == 4 ];
 then
 printf "bad luck"
@@ -11,7 +10,8 @@ printf "bad luck"
 elif [ $i == 8 ];
 then
 printf "good luck"
-
+else
+printf "Best School"
 fi
 
 i=$((i+1))

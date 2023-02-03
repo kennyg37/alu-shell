@@ -2,7 +2,7 @@
 #using until to print a loop
 i=1
 
-until ( $i count == 10 );
+until ( $i -eq 10 );
 
 do 
 echo"Best School"

@@ -2,10 +2,10 @@
 #using until to print a loop
 i=1
 
-until [ $i -eq 10 ]
+until [ $i == 10 ]
 
 do 
 echo"Best School"
-i=$(i+1)
+
 
 done

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #ls
-for file in ; do
-
+files=$(ls | grep -v "^\.")
+for file in $files; do
 if [ ! -d "$file" ] && [ ! -h "$file" ] && [[ $file != . ]]; then
 echo "${file##*-}"
 fi

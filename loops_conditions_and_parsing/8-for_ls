@@ -3,6 +3,6 @@
 files=(.)
 for file in "${files[@]}"; do
 if [ ! -d "$file" ] && [ ! -h "$file" ]; then
-echo "${file##*-}"
+echo "${file##-}"
 fi
 done

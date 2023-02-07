@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 # The file path
 
 file_path="/etc/passwd"

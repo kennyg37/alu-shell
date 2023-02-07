@@ -2,9 +2,9 @@
 #hours
 hour=0
 minute=1
-echo "Hour: $hour"
 while [ $hour -lt 13 ]
 do
+echo "Hour: $hour"
 hour=$(( hour+1))
 done
 while [ $minute -lt 60 ]

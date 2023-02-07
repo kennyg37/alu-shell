@@ -3,7 +3,7 @@
 IFS=:
 
 
-while read -r username password user_id group_id gecos home_directory shell
+while read -r username password user_id group_id gecos home_directory shell;
 
 do
 

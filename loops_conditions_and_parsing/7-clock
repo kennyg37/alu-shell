@@ -2,7 +2,7 @@
 #hours
 hour=0
 minute=0
-while [ $hour -le 12 ] [ $minute -le 59 ]
+while [ $hour -le 12 ] || [ $minute -le 59 ]
 do 
 echo $hour:$minute
 minute=$((minute+1))

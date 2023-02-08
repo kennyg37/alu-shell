@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Group visitors by IP and HTTP status code
 data=$(awk '{print $1, $9}' access.log)
+format_check=$(echo "$data" | awk '{if (NF != 2) {exit 1}}')
+if [ $? -ne 0 ]; then
+exit 1
 sorted_data=$(echo "$data" | sort -k1,1 -k2,2)
 grouped_data=$(echo "$sorted_data" | awk '{count[$1" "$2]++} END {for (i in count) print count[i], i}')
 result=$(echo "$grouped_data" | sort -nr)

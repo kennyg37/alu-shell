@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # Group visitors by IP and HTTP status code
-awk 'NF{print $1, $9}' access.log | sort -k1,1 -k2,2 | awk 'NF{count[$1" "$2]++} END {for (i in count) print count[i], i}' | sort -nr | awk 'NF{print}'
+awk '{a[$1,$3]++}END{for (i in a) {split(i,b,SUBSEP); printf "%s %s %s\n",a[i],b[1],b[2]}}' $1 | sort -nr

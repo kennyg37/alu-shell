@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 # Group visitors by IP and HTTP status code
-awk '{print $1, $9}' apache-access.log | sort | uniq -c | sort -fr | awk '{print $1 " " $2 " " $3}'
+data=$(awk '{print $1, $9}' access.log)
+sorted_data=$(echo "$data" | sort -k1,1 -k2,2)
+grouped_data=$(echo "$sorted_data" | awk '{count[$1" "$2]++} END {for (i in count) print count[i], i}')
+result=$(echo "$grouped_data" | sort -nr)
+echo "$result"

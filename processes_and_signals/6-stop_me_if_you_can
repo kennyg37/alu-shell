@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 #stoping without using kill
-pkill -f 4-to_infinity_and-beyond
+pkill -15  -f 4-to_infinity_and-beyond

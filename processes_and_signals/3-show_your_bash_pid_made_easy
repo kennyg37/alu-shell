@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #not using ps
 # shellcheck disable=SC2009
-for dir in /proc/[0-9]*; do [ -f "$dir/comm" ] && [ "$(cat $dir/comm)" == "bash" ] && echo "$(basename $dir) $(cat $dir/comm)"; done
+for dir in /proc/[0-9]*; do [ -f "$dir"/comm ] && [ "$(cat "$dir"/comm)" == "bash" ] && echo "$(basename "$dir") $(cat "$dir"/comm)"; done

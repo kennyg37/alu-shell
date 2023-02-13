@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 # Bash script that stops 4-to_infinity_and_beyond process
-ps -ef | pgrep 'bash ./4-to_infinity_and_beyond' | pgrep -v pgrep | awk '{print $2}' | xargs kill
+PID=$(ps -eaf | pgrep bash ./4-to_infinity_and_beyond | pgrep -v pgrep | awk '{print $2}')
+
+if [[ "" !=  "$PID" ]]; then
+echo "killing $PID"
+kill -9 "$PID"
+
+fi

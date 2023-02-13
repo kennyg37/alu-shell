@@ -2,3 +2,18 @@
 #not using ps
 # shellcheck disable=SC2009
 for dir in /proc/[0-9]*; do [ -f "$dir"/comm ] && [ "$(cat "$dir"/comm)" == "bash" ] && echo "$(basename "$dir") $(cat "$dir"/comm)"; done
+
+#or
+
+for dir in /proc/[0-9]*
+do
+    if [ -f "$dir/comm" ]
+    then
+        process_name="$(cat $dir/comm)"
+        if [ "$process_name" == "bash" ]
+        then
+            process_id="$(basename $dir)"
+            echo "$process_id $process_name"
+        fi
+    fi
+done

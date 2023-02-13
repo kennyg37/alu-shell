@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 #real
-ps -e
+ps -eF

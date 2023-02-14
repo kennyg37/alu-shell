@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #comment
-trap 'echo "I hate the kill command"' 15
 trap 'echo "Y U no love me"' 2
 echo $$ > /var/run/myscript.pid
 trap "rm -f /var/run/myscript.pid; exit" SIGQUIT SIGTERM
 while true; do sleep 1; done
+trap 'echo "I hate the kill command"' 15
 while true;
 do
 echo "To infinity and beyond"

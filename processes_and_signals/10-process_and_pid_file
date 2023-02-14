@@ -2,7 +2,6 @@
 #comment
 echo $$ > /var/run/myscript.pid
 trap "rm -f /var/run/myscript.pid" SIGQUIT SIGTERM
-while true; do sleep 1; done
 while true;
 do
 echo "To infinity and beyond"

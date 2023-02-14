@@ -11,4 +11,4 @@ cleanup(){
 rm /var/run/myscript.pid
 exit 0
 }
-trap"" SIGQUIT SIGTERM
+trap'clean shit up' 3 15

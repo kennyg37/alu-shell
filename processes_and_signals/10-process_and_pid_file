@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-#comment
-script="/var/run/myscript.pid"
-echo $$ > "$script"
-trap 'echo "I hate the kill command"; rm "$script"; exit' SIGTERM SIGQUIT
+#comment                                                
+echo $$ > /var/run/myscript.pid
+trap "rm -f /var/run/myscript.pid" SIGQUIT SIGTERM
 while true;
-do 
+do
 echo "To infinity and beyond"
+trap 'echo "I hate the kill command"' 15
 done

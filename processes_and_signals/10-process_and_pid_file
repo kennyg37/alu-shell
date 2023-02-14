@@ -9,6 +9,6 @@ trap cleanup SIGQUIT SIGTERM
 while true;
 do
 echo "To infinity and beyond"
-trap 'echo "I hate the kill command"' 15
+#trap 'echo "I hate the kill command"' 15
 done
 trap 'echo "Y U no love me"' 2  

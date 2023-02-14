@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
 #comment
 echo $$ > /var/run/myscript.pid
-cleanup() {
-	rm -f /var/run/myscript.pid
-	exit
-}
-trap cleanup SIGQUIT SIGTERM
-while true;
-do
-echo "To infinity and beyond"
-#trap 'echo "I hate the kill command"' 15
+trap "echo 'I hate the kill command'" SIGTERM
+trap "echo 'Y U no love me?!'" SIGINT
+trap "rm -f /var/run/myscript.pid; exit" SIGQUIT SIGTERM
+echo "To infinity and beyond..."
+while true; do
+sleep 1
 done
-trap 'echo "Y U no love me"' 2  

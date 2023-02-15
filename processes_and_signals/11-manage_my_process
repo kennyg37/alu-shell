@@ -1,33 +1,24 @@
 #!/usr/bin/env bash
 #Honestly i don't even know what i am doing
 
-case "$1" in
-  start)
-    if [ -f "/var/run/my_process.pid" ]; then
-      echo "Error: manage_my_process is already running (PID $(cat /var/run/my_process.pid))"
-    else
-      /path/to/manage_my_process.sh >/tmp/my_process 2>&1 &
-      echo $! > /var/run/my_process.pid
-      echo "manage_my_process started"
-    fi
-    ;;
-  stop)
-    if [ -f "/var/run/my_process.pid" ]; then
-      kill "$(cat /var/run/my_process.pid)"
-      rm /var/run/my_process.pid
-      echo "manage_my_process stopped"
-    else
-      echo "Error: manage_my_process is not running"
-    fi
-    ;;
-  restart)
-    $0 stop
-    sleep 1
-    $0 start
-    echo "manage_my_process restarted"
-    ;;
-  *)
-    echo "Usage: $0 {start|stop|restart}"
-    ;;
-esac
-
+script=/var/run/my_process.pid
+if [ "$1" == "start" ];
+then
+   ./manage_my_process &
+   sudo bash -c "echo $! > $script"
+   echo "manage_my_process started"
+elif [ "$1" == "stop" ];
+then
+   pkill -f ./manage_my_process
+   sudo rm $script
+   echo "manage_my_process stopped"
+elif [ "$1" == "restart" ];
+then
+   pkill -f ./manage_my_process 
+   sudo rm $script
+   ./manage_my_process &
+   sudo bash -c "echo $! > $script"
+   echo "manage_my_process restarted"
+else
+   echo "Usage: manage_my_process {start|stop|restart}"
+fi

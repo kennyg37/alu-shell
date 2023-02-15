@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-Honestly i don't even know what i am doing
+#Honestly i don't even know what i am doing
 
 case "$1" in
   start)
